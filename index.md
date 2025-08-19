@@ -1,0 +1,5 @@
+---
+id: index
+---
+
+# kodzutsumi documentation
