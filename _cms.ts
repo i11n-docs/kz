@@ -1,60 +1,39 @@
+import CMS from "lume/cms/mod.ts";
 
-import cms from "wiki/_cms.ts";
+const cms = CMS();
 
-cms.collection({
-  name: 'exceptions: Exception pages',
-  store: 'src:exceptions/**/*.md',
+cms.document({
+  name: "Site settings",
+  description: "Default settings for the site",
+  store: "src:_data.yml",
   fields: [
+    "lang: text",
     {
-      name: 'title',
-      label: 'Exception name',
-      type: 'text',
-      description: 'The name of the exception',
-    },
-    {
-      name: "ex_code",
-      label: "Exception code",
-      type: "number",
-      description: "The exception code",
-    },
-    {
-      name: 'exc_parent_name',
-      label: 'Parent exception name',
-      type: 'text',
-      description: 'The parent exception name',
-    },
-    {
-      name: 'exc_parent_code',
-      label: 'Parent exception code',
-      type: 'number',
-      description: 'The parent exception code',
-    },
-    "content: markdown",
-    {
-      name: "resolutions",
-      label: "Resolutions",
-      type: "object-list",
-      description: "Currently identifiable resolutions",
+      name: "metas",
+      type: "object",
       fields: [
-        "id: text",
-        "title: text",
-        "description: markdown",
-        "content: markdown",
-      ]
+        "site: text",
+        "twitter: text",
+        "fediverse: text",
+        "icon: file",
+        "lang: hidden",
+        "generator: checkbox",
+      ],
     },
-    {
-      name: "impl_notes",
-      label: "Implementation notes",
-      type: "markdown",
-      description: "Implementation notes",
-    },
-    {
-      name: 'layout',
-      label: 'Layout',
-      type: 'hidden',
-      value: 'exception.vto'
-    }
-  ]
-})
+  ],
+});
+
+cms.document({
+  name: "Homepage",
+  description: "Main page of the site",
+  store: "src:index.vto",
+  fields: [
+    "layout: hidden",
+    "title: text",
+    "content: code",
+  ],
+});
+
+cms.upload("uploads: Uploaded files", "src:uploads");
 
 export default cms;

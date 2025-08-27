@@ -1,8 +1,8 @@
 import lume from "lume/mod.ts";
-import decapCMS from "lume/plugins/decap_cms.ts";
+import theme from "https://denopkg.com/i11n-docs/kz-theme@dev/mod.ts";
 
 const site = lume();
 
-site.use(decapCMS());
+site.use(theme());
 
 export default site;
