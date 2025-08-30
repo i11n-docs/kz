@@ -10,6 +10,7 @@ import jsx from "lume/plugins/jsx.ts";
 import basePath from "lume/plugins/base_path.ts";
 import metas from "lume/plugins/metas.ts";
 import { Options as SitemapOptions, sitemap } from "lume/plugins/sitemap.ts";
+import { favicon, Options as FaviconOptions } from "lume/plugins/favicon.ts";
 import { merge } from "lume/core/utils/object.ts";
 import "npm:prismjs@1.29.0/components/prism-typescript.js";
 
@@ -17,9 +18,13 @@ import "lume/types.ts";
 
 export interface Options {
   sitemap?: Partial<SitemapOptions>;
+  favicon?: Partial<FaviconOptions>;
 }
 
 export const defaults: Options = {
+  favicon: {
+    input: "uploads/favicon.png",
+  },
 };
 
 /** Configure the site */
@@ -83,6 +88,7 @@ export default function (userOptions?: Options) {
       }))
       .use(slugifyUrls())
       .use(sitemap(options.sitemap))
+      .use(favicon(options.favicon))
       .use(date())
       .use(prism({
         theme: [
