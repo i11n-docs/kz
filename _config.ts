@@ -1,5 +1,5 @@
 import lume from "lume/mod.ts";
-import theme from "https://denopkg.com/i11n-docs/kz-theme@dev/mod.ts";
+import theme from "./mod.ts";
 
 const site = lume();
 

@@ -1,0 +1,21 @@
+lang: en
+bugurl: https://github.com/i11n-docs/kz/issues?template=bug_report.md
+
+logo: /uploads/logo.png
+name:
+  start: kod
+  end: zutsumi
+
+labels:
+  relations:
+    categories: Categories
+    tutorials: Tutorials
+    howtos: How-tos
+    explanations: Explanations
+    authors: Authors # Move to authors data
+
+metas:
+  site: kodzutsumi
+  icon: /uploads/favicon.png
+  lang: =lang
+  generator: true
